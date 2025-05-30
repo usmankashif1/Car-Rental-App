@@ -21,12 +21,14 @@ const ButtonC = ({
   marginTop,
   borderColor,
   iconName,
+  iconNameNext,
   iconFamily,
   size = 25,
   iconColor,
   left,
   fontSize,
-  marginVertical
+  marginVertical,
+  gap
 }) => {
   const Icon = iconFamily ? IconLibrary[iconFamily] : null;
 
@@ -42,7 +44,8 @@ const ButtonC = ({
           borderWidth: borderWidth,
           marginTop: marginTop,
           borderColor: borderColor,
-          marginVertical:marginVertical
+          marginVertical:marginVertical,
+          gap:gap
         },
       ]}
       onPress={onPress}>
@@ -51,6 +54,9 @@ const ButtonC = ({
       )}
 
       <Text style={[FONTS.h2, {color: color,left:left,fontSize:fontSize}]}>{title}</Text>
+      {Icon && iconNameNext && (
+        <Icon name={iconNameNext} size={size} color={iconColor} />
+      )}
     </TouchableOpacity>
   );
 };

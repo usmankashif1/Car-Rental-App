@@ -7,6 +7,9 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { multiplyMatrices } from 'react-native-svg/lib/typescript/elements/Shape';
 
 const IconLibrary = {
   AntDesign,
@@ -15,18 +18,21 @@ const IconLibrary = {
   EvilIcons,
   FontAwesome,
   Feather,
+  Ionicons,
+  MaterialCommunityIcons
 };
 
 const InputC = ({
   iconFamily,
   iconName,
+  iconNextName,
   iconColor = clr.Text2,
   backgroundColor = 'white',
   width = '90%',
   height = 52,
   radius = 10,
-  borderColor = '#D7D7D7',
-  bdwidth = 1.5,
+  borderColor = '#d7d7d7',
+  borderWidth = 1 || borderWidth,
   placeholder = 'Enter Name',
   placeholderTextColor = clr.Text2,
   value,
@@ -37,6 +43,15 @@ const InputC = ({
   keyboardType,
   marginVertical,
   fontSize = 12,
+  editable,
+  borderTopRightRadius,
+  borderBottomRightRadius,
+  borderTopLeftRadius,
+  borderBottomLeftRadius,
+  borderRightWidth,
+  multiline,
+  alignItems,
+  justifyContent
 }) => {
   const [secureTextEntry, setSecureTextEntry] = useState(isPassword);
   const Icon = iconFamily ? IconLibrary[iconFamily] : null;
@@ -49,12 +64,18 @@ const InputC = ({
         height,
         borderRadius: radius,
         flexDirection: 'row',
-        alignItems: 'center',
-        borderWidth: bdwidth,
+        alignItems: 'center' || alignItems,
+        justifyContent:justifyContent,
+        borderWidth: borderWidth,
         borderColor,
         paddingHorizontal: 10,
         marginTop: marginTop,
         marginVertical: marginVertical,
+        borderTopRightRadius:borderTopRightRadius,
+        borderBottomRightRadius:borderBottomRightRadius,
+        borderBottomLeftRadius:borderBottomLeftRadius,
+        borderTopLeftRadius:borderTopLeftRadius,
+        borderRightWidth:borderRightWidth
       }}>
       {Icon && iconName && (
         <Icon name={iconName} size={size} color={iconColor} />
@@ -68,6 +89,9 @@ const InputC = ({
         secureTextEntry={secureTextEntry}
         style={[FONTS.h4, styles.input, {fontSize: fontSize}]}
         keyboardType={keyboardType}
+        editable={editable}
+        multiline={multiline}
+        
       />
       {isPassword && (
         <TouchableOpacity onPress={() => setSecureTextEntry(!secureTextEntry)}>
@@ -78,9 +102,9 @@ const InputC = ({
           />
         </TouchableOpacity>
       )}
-      {/* {Icon && iconName && (
-        <Icon name={iconName} size={size} color={iconColor} />
-      )} */}
+      {Icon && iconNextName && (
+        <Icon name={iconNextName} size={size} color={iconColor} />
+      )}
     </View>
   );
 };

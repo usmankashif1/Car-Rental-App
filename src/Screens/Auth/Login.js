@@ -76,8 +76,8 @@ const Login = ({navigation}) => {
           title={'Login'}
           width="100%"
           fontSize={20}
-          onPress={()=>navigation.navigate('Home')}
-        />
+          onPress={()=>navigation.navigate('BottomNavigation', { screen: 'Home' })} 
+          />
         <ButtonC
           borderWidth={1}
           borderColor={clr.Text2}

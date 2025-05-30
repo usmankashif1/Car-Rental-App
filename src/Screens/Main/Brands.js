@@ -21,6 +21,7 @@ const Brands = () => {
             <item.Icon
               height={responsive.height(36)}
               width={responsive.width(36)}
+              color={'white'}
             />
           </View>
           <Text style={[FONTS.h4,{marginVertical:responsive.margin(10)}]}>{item.name}</Text>
@@ -41,10 +42,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   BrandsIconContainer: {
-    height: responsive.height('7.8%'),
-    width: responsive.width('15.5%'),
+    height: responsive.uniform(60),
+    width: responsive.uniform(60),
     backgroundColor: 'black',
-    borderRadius: responsive.borderRadius(100),
+    borderRadius: responsive.uniform(50),
     justifyContent: 'center',
     alignItems: 'center',
   },

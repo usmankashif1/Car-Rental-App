@@ -70,7 +70,7 @@ const AuthVerificationCode = () => {
           fontSize={18}
           width="100%"
           marginVertical={responsive.margin(20)}
-          onPress={()=>navigation.navigate('Home')}
+          onPress={()=>navigation.navigate('BottomNavigation')}
         />
       </View>
 
